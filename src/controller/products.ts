@@ -20,7 +20,7 @@ export const getAllCategories = async (req: Request, res: Response) => {
 
 export const getProducts = async (req: Request, res: Response) => {
     try {
-        const { selectedCategory, price } = req.body
+        const { selectedCategory, price, priceSorting } = req.body
 
         const query = {} as any
 
@@ -30,7 +30,7 @@ export const getProducts = async (req: Request, res: Response) => {
         if (price) {
             query.price = { $lte: price };
         }
-        const products = await Product.find(query);
+        const products = await Product.find(query).sort({ [priceSorting ? "price" : "title"]: priceSorting || 1 });
 
         return HTTPResponse.OK(res, {
             status: StatusCodes.OK,
