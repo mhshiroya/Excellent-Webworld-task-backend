@@ -1,0 +1,26 @@
+{
+  "name": "excellent-webworld-task-backend",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000E\u0000x\u0000c\u0000e\u0000l\u0000l\u0000e\u0000n\u0000t\u0000-\u0000W\u0000e\u0000b\u0000w\u0000o\u0000r\u0000l\u0000d\u0000-\u0000t\u0000a\u0000s\u0000k\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.11",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
