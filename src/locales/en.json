@@ -1,0 +1,47 @@
+{
+  "messages": {
+    "auth": {
+      "INVALID_DATA": "Invalid data provided",
+      "INVALID_PASSWORD": "Invalid password",
+      "USER_LOGIN": "Login successfully.",
+      "EMAIL_ALREADY_EXISTS": "Email already exists",
+      "USER_CREATED": "User created successfully",
+      "USER_NOT_FOUND": "User does not exist",
+      "PROFILE_DATA": "User profile data",
+      "PROFILE_UPDATED": "Image update.",
+      "OLD_AND_NEW_PASSWORD_REQUIRED": "Old and new password required",
+      "OLD_PASSWORD_INCORRECT": "Incorrect old password",
+      "NEW_PASSWORD_SAME_AS_OLD": "New password and old password should not same",
+      "PASSWORD_NOT_MATCH_CREATIREA": "Must contain at least 1 lowercase, 1 uppercase, 1 digit, 1 special character, min 8 chars",
+      "PASSWORD_UPDATED_SUCCESSFULLY": "Password updated successfully",
+      "EMAIL_REQUIRED": "Email required",
+      "RESET_LINK_SET": "Reset password link sent to your email",
+      "TOKEN_AND_PASSWORD_REQUIRED": "Reset password link expired",
+      "PASSWORD_RESET_SUCCESSFUL": "Password reset successfully"
+    },
+    "brand": {
+      "BRAND_LIST": "Brand list",
+      "BRAND_CREATED": "Brand added successfully",
+      "ID_REQUIRED": "ID required",
+      "BRAND_NOT_FOUND": "Brand not found",
+      "BRAND_UPDATED": "Brand updated successfully",
+      "BRAND_DELETED": "Brand deleted successfully"
+    },
+    "category": {
+      "CATEGORY_LIST": "Category list",
+      "CATEGORY_CREATED": "Category added successfully",
+      "ID_REQUIRED": "ID required",
+      "CATEGORY_NOT_FOUND": "Category not found",
+      "CATEGORY_UPDATED": "Category updated successfully",
+      "CATEGORY_DELETED": "Category deleted successfully"
+    },
+    "product": {
+      "PRODUCT_LIST": "Product list",
+      "FIELD_IMAGES_MUST_BE_ARRAY": "Image must be in array",
+      "ID_REQUIRED": "ID required",
+      "PRODUCT_CREATED": "Product added successfully",
+      "CATEGORY_NOT_FOUND": "Product not found",
+      "PRODUCT_DELETED": "Product deleted successfully"
+    }
+  }
+}

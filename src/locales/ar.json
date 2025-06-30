@@ -1,0 +1,47 @@
+{
+  "messages": {
+    "auth": {
+      "INVALID_DATA": "अमान्य डेटा प्रदान किया गया",
+      "INVALID_PASSWORD": "अमान्य पासवर्ड",
+      "USER_LOGIN": "सफलतापूर्वक लॉगिन हुआ",
+      "EMAIL_ALREADY_EXISTS": "ईमेल पहले से मौजूद है",
+      "USER_CREATED": "उपयोगकर्ता सफलतापूर्वक बनाया गया",
+      "USER_NOT_FOUND": "उपयोगकर्ता मौजूद नहीं है",
+      "PROFILE_DATA": "उपयोगकर्ता प्रोफ़ाइल डेटा",
+      "PROFILE_UPDATED": "छवि सफलतापूर्वक अपडेट की गई",
+      "OLD_AND_NEW_PASSWORD_REQUIRED": "पुराना और नया पासवर्ड आवश्यक है",
+      "OLD_PASSWORD_INCORRECT": "पुराना पासवर्ड गलत है",
+      "NEW_PASSWORD_SAME_AS_OLD": "नया पासवर्ड पुराने पासवर्ड जैसा नहीं होना चाहिए",
+      "PASSWORD_NOT_MATCH_CREATIREA": "कम से कम 1 छोटे अक्षर, 1 बड़े अक्षर, 1 अंक, 1 विशेष वर्ण और न्यूनतम 8 अक्षर आवश्यक हैं",
+      "PASSWORD_UPDATED_SUCCESSFULLY": "पासवर्ड सफलतापूर्वक अपडेट हुआ",
+      "EMAIL_REQUIRED": "ईमेल आवश्यक है",
+      "RESET_LINK_SET": "पासवर्ड रीसेट लिंक आपके ईमेल पर भेजा गया",
+      "TOKEN_AND_PASSWORD_REQUIRED": "पासवर्ड रीसेट लिंक की समय सीमा समाप्त हो गई है",
+      "PASSWORD_RESET_SUCCESSFUL": "पासवर्ड सफलतापूर्वक रीसेट हुआ"
+    },
+    "brand": {
+      "BRAND_LIST": "ब्रांड सूची",
+      "BRAND_CREATED": "ब्रांड सफलतापूर्वक जोड़ा गया",
+      "ID_REQUIRED": "आईडी आवश्यक है",
+      "BRAND_NOT_FOUND": "ब्रांड नहीं मिला",
+      "BRAND_UPDATED": "ब्रांड सफलतापूर्वक अपडेट हुआ",
+      "BRAND_DELETED": "ब्रांड सफलतापूर्वक हटाया गया"
+    },
+    "category": {
+      "CATEGORY_LIST": "श्रेणी सूची",
+      "CATEGORY_CREATED": "श्रेणी सफलतापूर्वक जोड़ी गई",
+      "ID_REQUIRED": "आईडी आवश्यक है",
+      "CATEGORY_NOT_FOUND": "श्रेणी नहीं मिली",
+      "CATEGORY_UPDATED": "श्रेणी सफलतापूर्वक अपडेट हुई",
+      "CATEGORY_DELETED": "श्रेणी सफलतापूर्वक हटाई गई"
+    },
+    "product": {
+      "PRODUCT_LIST": "उत्पाद सूची",
+      "FIELD_IMAGES_MUST_BE_ARRAY": "चित्र एक सूची में होना चाहिए",
+      "ID_REQUIRED": "आईडी आवश्यक है",
+      "PRODUCT_CREATED": "उत्पाद सफलतापूर्वक जोड़ा गया",
+      "CATEGORY_NOT_FOUND": "उत्पाद नहीं मिला",
+      "PRODUCT_DELETED": "उत्पाद सफलतापूर्वक हटाया गया"
+    }
+  }
+}
