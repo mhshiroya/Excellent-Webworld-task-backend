@@ -80,12 +80,17 @@ export const Register = async (req: Request, res: Response) => {
     );
     let htmlContent = fs.readFileSync(templatePath, "utf-8");
     htmlContent = htmlContent.replace(/{{name}}/g, fullName);
+    htmlContent = htmlContent.replace(/{{app_name}}/g, "myapp");
     htmlContent = htmlContent.replace(
       /{{year}}/g,
       new Date().getFullYear().toString()
     );
 
-    await sendEmail(email, htmlContent, "Register Welcome Email");
+    await sendEmail(
+      email,
+      htmlContent,
+      process.env.APP_NAME + ": Register Welcome Email"
+    );
 
     const token = jwt.sign(
       { _id: user._id },
@@ -259,11 +264,16 @@ export const forgotPassword = async (req: Request, res: Response) => {
     let htmlContent = fs.readFileSync(templatePath, "utf-8");
     htmlContent = htmlContent.replace(/{{name}}/g, user.fullName);
     htmlContent = htmlContent.replace(/{{resetLink}}/g, resetLink);
+    htmlContent = htmlContent.replace(/{{app_name}}/g, "myapp");
     htmlContent = htmlContent.replace(
       /{{year}}/g,
       new Date().getFullYear().toString()
     );
-    await sendEmail(email, htmlContent, "Forgot Password Email");
+    await sendEmail(
+      email,
+      htmlContent,
+      process.env.APP_NAME + ": Forgot Password Email"
+    );
 
     return HTTPResponse.OK(res, {
       status: StatusCodes.OK,

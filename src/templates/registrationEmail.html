@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Welcome to Our Platform</title>
+    <title>Welcome to {{ app_name }}</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -54,7 +54,7 @@
         <h1>Welcome, {{name}}!</h1>
       </div>
       <div class="content">
-        <p>Thank you for registering at <strong>Our Platform</strong>.</p>
+        <p>Thank you for registering at <strong>{{app_name}}</strong>.</p>
         <p>
           We're thrilled to have you with us and look forward to providing you
           with the best experience.
@@ -67,7 +67,7 @@
         <p>
           If you did not register for this account, please ignore this email.
         </p>
-        <p>&copy; {{year}} Our Platform. All rights reserved.</p>
+        <p>&copy; {{year}} {{app_name}}. All rights reserved.</p>
       </div>
     </div>
   </body>

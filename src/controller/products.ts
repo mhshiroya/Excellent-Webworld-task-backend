@@ -1,3 +1,4 @@
+import fs from "fs";
 import { Request, Response } from "express";
 import Products, { IProduct } from "../models/Products";
 import { saveBase64Image } from "../utils/fileUpload";
@@ -7,6 +8,8 @@ import {
   StatusCodes,
   handleErrorResponse,
 } from "../utils/httpResponse";
+import { addProductSchema } from "../validations/productValidation";
+import path from "path";
 
 export const getProducts = async (req: Request, res: Response) => {
   try {
@@ -59,6 +62,13 @@ export const getProducts = async (req: Request, res: Response) => {
 
 export const addProduct = async (req: Request, res: Response) => {
   try {
+    const { error, value } = addProductSchema.validate(req.body);
+    if (error) {
+      return HTTPResponse.BAD_REQUEST(res, {
+        status: StatusCodes.BAD_REQUEST,
+        message: error.details[0].message,
+      });
+    }
     const {
       title,
       description,
@@ -68,9 +78,8 @@ export const addProduct = async (req: Request, res: Response) => {
       stock,
       brand_id,
       category_id,
-      thumbnail,
       images,
-    } = req.body;
+    } = value;
 
     if (images && !Array.isArray(images)) {
       return HTTPResponse.BAD_REQUEST(res, {
@@ -89,15 +98,6 @@ export const addProduct = async (req: Request, res: Response) => {
       }
     }
 
-    let savedThumbnail = thumbnail;
-    if (
-      thumbnail &&
-      typeof thumbnail === "string" &&
-      thumbnail.trim().startsWith("data:image")
-    ) {
-      savedThumbnail = saveBase64Image(thumbnail, "product_images");
-    }
-
     const newProduct = await new Products({
       title,
       description,
@@ -107,7 +107,6 @@ export const addProduct = async (req: Request, res: Response) => {
       stock,
       brand_id,
       category_id,
-      thumbnail: savedThumbnail,
       images: savedImagePaths,
       deleted: false,
     }).save();
@@ -131,6 +130,24 @@ export const deleteProduct = async (req: Request, res: Response) => {
       return HTTPResponse.NOT_FOUND(res, {
         status: StatusCodes.NOT_FOUND,
         message: res.__("messages.product.PRODUCT_NOT_FOUND"),
+      });
+    }
+
+    // Unlink each image file
+    if (Array.isArray(product.images)) {
+      product.images.forEach((imgPath) => {
+        const fullPath = path.join(process.cwd(), imgPath);
+        if (fs.existsSync(fullPath)) {
+          fs.unlink(fullPath, (err) => {
+            if (err) {
+              console.error(`Failed to delete image: ${fullPath}`, err);
+            } else {
+              console.log(`Deleted image: ${fullPath}`);
+            }
+          });
+        } else {
+          console.warn(`Image file not found: ${fullPath}`);
+        }
       });
     }
 

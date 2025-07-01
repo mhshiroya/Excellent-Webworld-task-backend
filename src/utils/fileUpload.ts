@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import sharp from "sharp";
 import { v4 as uuidv4 } from "uuid";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 
@@ -34,6 +35,27 @@ export const saveBase64Image = (
 
   // Return relative path
   return `uploads/${folder_name}/${fileName}`;
+};
+
+export const generateThumbnail = (
+  originalPath: string,
+  thumbFolder: string
+): string => {
+  const fileName = `thumb_${path.basename(originalPath)}`;
+  const outputFolder = path.join(process.cwd(), "uploads", thumbFolder);
+  const outputPath = path.join(outputFolder, fileName);
+
+  if (!fs.existsSync(outputFolder)) {
+    fs.mkdirSync(outputFolder, { recursive: true });
+  }
+
+  // Ensure correct input path
+  sharp(path.join(process.cwd(), originalPath))
+    .resize(200, 200)
+    .toFile(outputPath)
+    .catch((err) => console.error("Thumbnail generation error:", err));
+
+  return `uploads/${thumbFolder}/${fileName}`;
 };
 
 export const uploadBase64ImageToS3 = async (

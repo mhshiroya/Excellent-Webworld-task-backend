@@ -10,7 +10,6 @@ export interface IProduct extends Document {
   stock: number;
   category_id: Types.ObjectId;
   brand_id: Types.ObjectId;
-  thumbnail: string;
   images: string[];
   deleted: boolean;
 }

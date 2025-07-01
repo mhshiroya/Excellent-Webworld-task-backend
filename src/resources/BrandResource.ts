@@ -1,15 +1,25 @@
+import fs from "fs";
 import { IBrands } from "../models/Brands"; // your user interface
+import path from "path";
 
 // ProductResource.ts
-export const BrandResource = (category: IBrands | IBrands[]) => {
-  if (Array.isArray(category)) {
-    return category.map((p) => singleCategory(p));
+export const BrandResource = (brand: IBrands | IBrands[]) => {
+  if (Array.isArray(brand)) {
+    return brand.map((p) => singleCategory(p));
   }
-  return singleCategory(category);
+  return singleCategory(brand);
 };
 
-const singleCategory = (category: IBrands) => ({
-  id: category._id,
-  title: category.title,
-  description: category.description,
+const singleCategory = (brand: IBrands) => ({
+  id: brand._id,
+  title: brand.title,
+  description: brand.description,
+  image:
+    brand.image && fs.existsSync(path.resolve(brand.image))
+      ? `${process.env.BASE_URL}${brand.image}`.replace(/\\/g, "/")
+      : null,
+  thumbnail:
+    brand.thumbnail && fs.existsSync(path.resolve(brand.thumbnail))
+      ? `${process.env.BASE_URL}${brand.thumbnail}`.replace(/\\/g, "/")
+      : null,
 });
